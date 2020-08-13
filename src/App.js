@@ -17,6 +17,14 @@ function App() {
     setLookUp(entered)
   };
 
+  // Clear search results
+  const clearIt = (event) => {
+    setLookUp('')
+    setCharacter('')
+    setFilms('')
+    setStarShips('')
+  };
+
   // handle submission of form
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -35,37 +43,33 @@ function App() {
         .catch(err => console.log(err));
 };
 
-// search for film titles and setState
-const searchFilm = (filmsArray) => {
+// search for film titles, use async-await to get each film before setState
+const searchFilm = async (filmsArray) => {
 
   let filmNames = [];
 
-  filmsArray.map (film => (
-    API.film(film)
-    .then(res =>{
-      filmNames.push(res.data.title)
-      setFilms(filmNames)
-    })
-  .catch(err => console.log(err))
-  ))
-  
+  for (const film of filmsArray) {
+   await API.film(film)
+    .then(res => 
+      filmNames.push(res.data.title))
+    .catch(err => console.log(err))
+  }
+  setFilms(filmNames);
 };
 
 
 // search for star ship names and setState
-const searchShips = (shipsArray) => {
+const searchShips = async (shipsArray) => {
 
   let shipNames = [];
 
-  shipsArray.map (ship => (
-    API.starShip(ship)
-    .then(res =>{
-      shipNames.push(res.data.name)
-      setStarShips(shipNames)
-    })
-  .catch(err => console.log(err))
-  ))
-  
+  for (const ship of shipsArray) {
+    await API.starShip(ship)
+      .then(res =>
+        shipNames.push(res.data.name))
+      .catch(err => console.log(err))
+  }
+  setStarShips(shipNames);
 };
 
   return (
@@ -73,7 +77,8 @@ const searchShips = (shipsArray) => {
       <Header />
       <Search 
       handleInputChange={handleInputChange}
-      handleFormSubmit={handleFormSubmit}      
+      handleFormSubmit={handleFormSubmit}
+      clearIt={clearIt}      
       />
       <Character
         name={character.name}

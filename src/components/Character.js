@@ -2,7 +2,8 @@ import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 import List from './List';
 
-const Example = (props) => {
+const Character = (props) => {
+  if (props.films.length > 0){
   return (
     <div>
       <Jumbotron>
@@ -18,18 +19,16 @@ const Example = (props) => {
             
 
                 <hr className="my-2" />
-                <List>
-                  {props.children}
-                </List>
+                <List 
+                films={props.films} 
+                starShips={props.starShips} />
 
-            <p className="lead">
-
-                <Button color="primary">Learn More</Button>
             
-            </p>
       </Jumbotron>
     </div>
-  );
+  )}else{
+    return (<div>Star Wars Rocks</div>)
+  }
 };
 
-export default Example;
+export default Character;
