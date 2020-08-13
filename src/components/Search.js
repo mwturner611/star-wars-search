@@ -9,7 +9,7 @@ const Search = (props) => {
 
         <Label for="examplePassword" className="mr-sm-2 form">Search Here!</Label>
 
-          <Input type="text" name="password" id="examplePassword" placeholder="Character Name" className="form" onChange={props.handleInputChange}/>
+          <Input type="text" name="text" placeholder="Character Name" className="form" value={props.lookup} onChange={props.handleInputChange}/>
 
       </FormGroup>
 

@@ -34,7 +34,7 @@ function App() {
   // search for character by name
  const searchName = (name) => {
     API.people(name)
-        .then(res =>{
+        .then(res => {
                 setCharacter(res.data.results[0])
                 searchFilm(res.data.results[0].films)
                 searchShips(res.data.results[0].starships)
@@ -72,24 +72,34 @@ const searchShips = async (shipsArray) => {
   setStarShips(shipNames);
 };
 
+const renderCharacter = () => {
+  if(character){
+    return <Character
+    name={character ? character.name : undefined}
+    height={character.height}
+    weight={character.mass}
+    hairColor={character.hair_color}
+    dob={character.birth_year}
+    species={character.species}
+    films={films}
+    starShips={starShips}
+  />
+  } else{
+    return
+  }
+}
+
   return (
     <div className="App">
       <Header />
       <Search 
       handleInputChange={handleInputChange}
       handleFormSubmit={handleFormSubmit}
-      clearIt={clearIt}      
+      clearIt={clearIt}
+      value={lookup}
       />
-      <Character
-        name={character.name}
-        height={character.height}
-        weight={character.mass}
-        hairColor={character.hair_color}
-        dob={character.birth_year}
-        species={character.species}
-        films={films}
-        starShips={starShips}
-      />
+      {renderCharacter()}
+      
     </div>
   );
 }
