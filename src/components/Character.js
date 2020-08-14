@@ -1,30 +1,34 @@
 import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import {
+  Card, CardBody,
+  CardTitle, CardSubtitle, ListGroup, ListGroupItem
+} from 'reactstrap';
 import List from './List';
 
 const Character = (props) => {
   if (props.films.length > 0){
   return (
     <div>
-      <Jumbotron>
-        <h1 className="display-3">{props.name}</h1>
+      <Card className="card">
+        <CardBody>
 
-            <ul className="lead">
-              <li>Height: {props.height}</li>
-              <li>Weight: {props.weight}</li>
-              <li>Hair: {props.hairColor}</li>
-              <li>Year of Birth: {props.dob}</li>
-              <li>species: {props.species}</li>
-            </ul>
-            
+        <CardTitle className="title">{props.name}</CardTitle>
+          <CardSubtitle></CardSubtitle>
+          
+            <ListGroup>
+              <ListGroupItem><u>Height:</u> {props.height}</ListGroupItem>
+              <ListGroupItem><u>Weight:</u> {props.weight}</ListGroupItem>
+              <ListGroupItem><u>Hair:</u> {props.hairColor}</ListGroupItem>
+              <ListGroupItem><u>Year of Birth:</u> {props.dob}</ListGroupItem>
+              <ListGroupItem><u>Species:</u> {props.species}</ListGroupItem>
+            </ListGroup>
+          
+                    <List 
+                    films={props.films} 
+                    starShips={props.starShips} />
 
-                <hr className="my-2" />
-                <List 
-                films={props.films} 
-                starShips={props.starShips} />
-
-            
-      </Jumbotron>
+        </CardBody>            
+      </Card>
     </div>
   )}else{
     return (<div>Star Wars Rocks</div>)

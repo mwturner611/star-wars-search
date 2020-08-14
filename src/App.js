@@ -75,7 +75,7 @@ const searchShips = async (shipsArray) => {
 const renderCharacter = () => {
   if(character){
     return <Character
-    name={character ? character.name : undefined}
+    name={character.name}
     height={character.height}
     weight={character.mass}
     hairColor={character.hair_color}
@@ -85,7 +85,7 @@ const renderCharacter = () => {
     starShips={starShips}
   />
   } else{
-    return
+    return;
   }
 }
 

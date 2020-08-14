@@ -1,32 +1,50 @@
-import React, {useEffect} from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import React, {useState} from 'react';
+import { CardTitle, ListGroup, ListGroupItem, Collapse, Button, CardBody, Card } from 'reactstrap';
 
 
 const List = (props) => {
 
-    const films = props.films;
-    const starShips = props.starShips;
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
     
+    const renderLists = () => {
+        if(props.films){
+          return <div>
+                    <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>More</Button>
 
+                    <Collapse isOpen={isOpen}>
+                        <Card>
+                            <CardBody>
+                            <CardTitle className="title">Films</CardTitle>
+                                <ListGroup>
+                                    
+                                    {props.films.map(film => (
+                                    <ListGroupItem key={film}>{film} </ListGroupItem>
+                                    ))}
+                                    
+                                </ListGroup>
+
+                                <CardTitle className="title">Star Ships Flown</CardTitle>
+                                <ListGroup>
+                                    
+                                    {props.starShips.map(ship => (
+                                    <ListGroupItem key={ship}>{ship} </ListGroupItem>
+                                    ))}
+                                    
+                                </ListGroup>
+                            </CardBody>
+                        </Card>
+                    </Collapse>
+                </div>
+                
+        } else{
+          return;
+        }
+      }
  
     return(
         <div>
-            <h3>Films</h3>
-            <ul>
-                
-            {props.films.map(film => (
-                    <li>{film} </li>
-                ))}
-            
-            </ul>
-
-            <h3>Star Ships Flown</h3>
-            <ul>
-                {props.starShips.map(starShip => (
-                    <li>{starShip} </li>
-                ))}
-
-            </ul>
+            {renderLists()}
 		</div>		
     );
 }

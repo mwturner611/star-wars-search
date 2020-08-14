@@ -4,7 +4,7 @@ const Header = () => {
   return (
         <div>
             <nav className="navbar navbar-light">
-                <h1 >Star Wars</h1>        
+                <h1>Star Wars</h1>        
             </nav>
         </div>
   );
