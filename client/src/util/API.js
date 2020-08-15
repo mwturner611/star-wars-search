@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "https://swapi.dev/api/people/?search=";
+const URL = "http://swapi.dev/api/people/?search=";
 
 // axios calls defined
 export default {

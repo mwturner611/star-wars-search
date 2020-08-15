@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/mwturner611/star-wars-search#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "path": "^0.12.7"
