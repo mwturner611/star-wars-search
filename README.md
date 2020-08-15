@@ -2,9 +2,9 @@
 
 # Star Wars Search
 ###### Description
-This app allows you to search for Star Wars characters and learn more about them.  
+This app is for the Star Wars enthusiast who wants to learn more about the characters they love.  
 
-[Click here to live link]()
+[Click here to live link](https://star-wars-search.herokuapp.com/)
 
 ## Contributors
 * mwturner611
