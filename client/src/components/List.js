@@ -10,7 +10,7 @@ const List = (props) => {
     const renderLists = () => {
         if(props.films){
           return <div>
-                    <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>More</Button>
+                    <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>{isOpen ? "Less" : "More"}</Button>
 
                     <Collapse isOpen={isOpen}>
                         <Card>
@@ -24,7 +24,7 @@ const List = (props) => {
                                     
                                 </ListGroup>
 
-                                <CardTitle className="title">Star Ships Flown</CardTitle>
+                                <CardTitle className="title">{props.starShips.length>0 ? "Star Ships Flown" : ""}</CardTitle>
                                 <ListGroup>
                                     
                                     {props.starShips.map(ship => (

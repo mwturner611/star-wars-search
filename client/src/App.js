@@ -96,7 +96,6 @@ const renderCharacter = () => {
       handleInputChange={handleInputChange}
       handleFormSubmit={handleFormSubmit}
       clearIt={clearIt}
-      value={lookup}
       />
       {renderCharacter()}
       

@@ -1,21 +1,19 @@
 import axios from "axios";
-const URL = "https://swapi.dev/api/people/?search=";
-
 
 // axios calls defined
 export default {
     people: function(name) {
-        return axios.get(URL+name)
+        return axios.get('/api/people/'+ name)
     },
     film: function(url) {
-        const secure = 's';
-        let secureURL = [url.slice(0,4), secure, url.slice(4)].join('');
-        return axios.get(secureURL)
+        let nbr = url.slice(-2);
+        
+        return axios.get('/api/films/' +  nbr)
     },
     starShip: function(url) {
-        const secure = 's';
-        let secureURL = [url.slice(0,4), secure, url.slice(4)].join('');
-        return axios.get(secureURL)
+        let nbr = url.slice(-3);
+  
+        return axios.get('/api/starships/' +  nbr)
     }
 
 };

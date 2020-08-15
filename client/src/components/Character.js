@@ -31,7 +31,7 @@ const Character = (props) => {
       </Card>
     </div>
   )}else{
-    return (<div>Star Wars Rocks</div>)
+    return (<div></div>)
   }
 };
 

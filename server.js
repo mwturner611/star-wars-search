@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const router = require('./routers/router');
 
 // Middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -12,10 +13,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// API routes here
+// API routes
 app.get('/', (req,res) => {
   res.json("Hey, your server is working!")
 })
+
+app.use(router);
 
 // Every other request to the React app
 app.get("*", (req, res) => {
