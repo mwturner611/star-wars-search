@@ -4,12 +4,22 @@ import API from "./util/API";
 import Search from "./components/Search";
 import Header from "./components/Header";
 import Character from "./components/Character";
+import Toggle from "./components/Toggle";
+import {ThemeProvider} from 'styled-components';
+import {GlobalStyles} from './components/GlobalStyles';
+import {lightTheme, darkTheme} from './components/Theme';
+import {useDarkMode} from "./components/useDarkMode";
 
 function App() {
   const [lookup, setLookUp] = useState([]);
   const [character, setCharacter] = useState({});
   const [films, setFilms] = useState([]);
-  const [starShips, setStarShips] = useState([]);  
+  const [starShips, setStarShips] = useState([]);
+  const [species, setSpecies] = useState([]);
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
+
+const themeMode = theme === 'light' ? lightTheme : darkTheme;
+   
 
   // update state search with any entry to search box
  const handleInputChange = (event) => {
@@ -19,7 +29,6 @@ function App() {
 
   // Clear search results
   const clearIt = (event) => {
-    setLookUp('')
     setCharacter('')
     setFilms('')
     setStarShips('')
@@ -31,14 +40,14 @@ function App() {
     searchName(lookup);
   };
 
-  // search for character by name
+   // search for character by name
  const searchName = (name) => {
     API.people(name)
         .then(res => {
                 setCharacter(res.data.results[0])
                 searchFilm(res.data.results[0].films)
                 searchShips(res.data.results[0].starships)
-                
+                searchSpecies(res.data.results[0].species)
               })
         .catch(err => console.log(err));
 };
@@ -72,6 +81,18 @@ const searchShips = async (shipsArray) => {
   setStarShips(shipNames);
 };
 
+// search for species name and setState
+const searchSpecies = async (speciesURL) => {
+
+  if (speciesURL === undefined || speciesURL.length == 0){
+    return "not defined";
+} else{
+  await API.species(speciesURL)
+      .then(res =>
+          setSpecies(res.data.name))
+      .catch(err => console.log(err))}
+};
+
 const renderCharacter = () => {
   if(character){
     return <Character
@@ -80,18 +101,28 @@ const renderCharacter = () => {
     weight={character.mass}
     hairColor={character.hair_color}
     dob={character.birth_year}
-    species={character.species}
+    species={species}
     films={films}
     starShips={starShips}
+    
   />
   } else{
     return;
   }
 }
 
+if(!mountedComponent) return <div/>
   return (
+    <ThemeProvider theme={themeMode}>
+      <>
+      <GlobalStyles/>
     <div className="App">
       <Header />
+      <Toggle 
+       theme={theme}
+       toggleTheme={themeToggler}
+      />
+      
       <Search 
       handleInputChange={handleInputChange}
       handleFormSubmit={handleFormSubmit}
@@ -100,6 +131,8 @@ const renderCharacter = () => {
       {renderCharacter()}
       
     </div>
+    </>
+    </ThemeProvider>
   );
 }
 

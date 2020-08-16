@@ -1,7 +1,16 @@
+body {
+  padding: 5px;
+}
+
+.form {
+  margin: 5px;
+}
+
 .App {
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 
 .title {
   font-weight: bold;
@@ -13,5 +22,5 @@
   margin-top: 2%;
   margin-left: 20%;
   margin-right: 20%;
-
 }
+

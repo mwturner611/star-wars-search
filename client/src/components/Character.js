@@ -31,7 +31,7 @@ const Character = (props) => {
       </Card>
     </div>
   )}else{
-    return (<div></div>)
+    return (<div style={{backgroundColor: props.force}}></div>)
   }
 };
 

@@ -30,6 +30,9 @@ Node.JS, Express, Heroku, React, Reactstrap, JavaScript, HTML, CSS and Axios
 3. See the facts about your returned character and click "more" to see Star Ships Flown and Movies with the character
 4. Repeat and enjoy
 
+## Kudos
+Blessing Krofegha for his article on Dark Mode in React [here.](https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/)
+
 ## License
 This project is licensed under The MIT License (MIT).
 

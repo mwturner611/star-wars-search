@@ -14,6 +14,10 @@ export default {
         let nbr = url.slice(-3);
   
         return axios.get('/api/starships/' +  nbr)
+    },
+    species: function(url) {
+        let nbr = url[0].slice(29,31);
+        return axios.get('/api/species/' +  nbr)
     }
 
 };

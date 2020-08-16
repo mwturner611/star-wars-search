@@ -3,6 +3,7 @@ const router = express.Router()
 const people = require('./people');
 const films = require('./films');
 const starShips = require('./starShips');
+const species = require('./species');
 
 router.use((req, res, next) => {
     console.log("Called: ", req.path)
@@ -12,6 +13,7 @@ router.use((req, res, next) => {
 router.use(films)
 router.use(people)
 router.use(starShips)
+router.use(species)
 
 
 module.exports = router

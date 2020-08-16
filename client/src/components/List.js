@@ -12,7 +12,7 @@ const List = (props) => {
           return <div>
                     <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>{isOpen ? "Less" : "More"}</Button>
 
-                    <Collapse isOpen={isOpen}>
+                    <Collapse isOpen={isOpen} className="list">
                         <Card>
                             <CardBody>
                             <CardTitle className="title">Films</CardTitle>
