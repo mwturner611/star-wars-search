@@ -16,11 +16,11 @@ const Character = (props) => {
           <CardSubtitle></CardSubtitle>
           
             <ListGroup>
-              <ListGroupItem><u>Height:</u> {props.height}</ListGroupItem>
-              <ListGroupItem><u>Weight:</u> {props.weight}</ListGroupItem>
-              <ListGroupItem><u>Hair:</u> {props.hairColor}</ListGroupItem>
-              <ListGroupItem><u>Year of Birth:</u> {props.dob}</ListGroupItem>
-              <ListGroupItem><u>Species:</u> {props.species}</ListGroupItem>
+              <ListGroupItem className="item"><u>Height:</u> {props.height}</ListGroupItem>
+              <ListGroupItem className="item"><u>Weight:</u> {props.weight}</ListGroupItem>
+              <ListGroupItem className="item"><u>Hair:</u> {props.hairColor}</ListGroupItem>
+              <ListGroupItem className="item"><u>Year of Birth:</u> {props.dob}</ListGroupItem>
+              <ListGroupItem className="item"><u>Species:</u> {props.species}</ListGroupItem>
             </ListGroup>
           
                     <List 

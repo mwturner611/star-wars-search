@@ -19,7 +19,7 @@ const List = (props) => {
                                 <ListGroup>
                                     
                                     {props.films.map(film => (
-                                    <ListGroupItem key={film}>{film} </ListGroupItem>
+                                    <ListGroupItem className="item" key={film}>{film} </ListGroupItem>
                                     ))}
                                     
                                 </ListGroup>
@@ -28,7 +28,7 @@ const List = (props) => {
                                 <ListGroup>
                                     
                                     {props.starShips.map(ship => (
-                                    <ListGroupItem key={ship}>{ship} </ListGroupItem>
+                                    <ListGroupItem className="item" key={ship}>{ship} </ListGroupItem>
                                     ))}
                                     
                                 </ListGroup>

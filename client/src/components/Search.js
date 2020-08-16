@@ -14,8 +14,8 @@ const Search = (props) => {
 
       </FormGroup>
 
-        <Button className="form btn" onClick={props.handleFormSubmit}>Search</Button>
-        <Button className="form btn" onClick={props.clearIt}>Clear</Button>
+        <Button color="info" className="form SearchBtns" onClick={props.handleFormSubmit}>Search</Button>
+        <Button color="warning" className="form SearchBtns" onClick={props.clearIt}>Clear</Button>
 
     </Form>
   );

@@ -29,13 +29,14 @@ const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   // Clear search results
   const clearIt = (event) => {
-    setCharacter('')
     setFilms('')
     setStarShips('')
+    setSpecies('')
   };
 
   // handle submission of form
   const handleFormSubmit = (event) => {
+    clearIt();
     event.preventDefault();
     searchName(lookup);
   };
