@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+
+// function to change theme in local storage and then to apply them to screen
 export const useDarkMode = () => {
     const [theme, setTheme] = useState('light');
     const [mountedComponent, setMountedComponent] = useState(false)

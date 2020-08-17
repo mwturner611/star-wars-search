@@ -5,7 +5,9 @@ import {
 } from 'reactstrap';
 import List from './List';
 
+// character info component
 const Character = (props) => {
+  // only load if the app.js passes down props
   if (props.films.length > 0){
   return (
     <div>
@@ -23,6 +25,7 @@ const Character = (props) => {
               <ListGroupItem className="item"><u>Species:</u> {props.species}</ListGroupItem>
             </ListGroup>
           
+                    {/* pass props to child component */}
                     <List 
                     films={props.films} 
                     starShips={props.starShips} />
@@ -31,7 +34,8 @@ const Character = (props) => {
       </Card>
     </div>
   )}else{
-    return (<div style={{backgroundColor: props.force}}></div>)
+    // display nothing if no props are passed down
+    return (<div></div>)
   }
 };
 

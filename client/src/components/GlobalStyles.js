@@ -1,3 +1,5 @@
+// using styled-components package - use global styles to apply our theme colors globally
+
 import { createGlobalStyle} from "styled-components"
 export const GlobalStyles = createGlobalStyle`
   body {

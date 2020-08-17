@@ -1,3 +1,5 @@
+// create the light and dark theme colors as objects and export
+
 export const lightTheme = {
     body: '#FFF',
     text: '#363537',

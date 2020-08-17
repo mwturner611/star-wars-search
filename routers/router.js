@@ -5,6 +5,7 @@ const films = require('./films');
 const starShips = require('./starShips');
 const species = require('./species');
 
+// bring in all routes files and export to server.js
 router.use((req, res, next) => {
     console.log("Called: ", req.path)
     next()
